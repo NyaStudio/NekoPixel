@@ -62,8 +62,8 @@ export function Community() {
               加入 QQ 群聊
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent">
-              查看服务器规则
+            <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent" asChild>
+              <Link href="/rules">查看服务器规则</Link>
             </Button>
           </div>
         </div>
