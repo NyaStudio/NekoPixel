@@ -153,11 +153,9 @@ export function Hero({
             </span>
           </div>
         ) : (
-          <Link href="/status">
             <div className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer">
               <span className="text-sm font-medium text-yellow-600 dark:text-yellow-500">⚠️ 服务器离线 - 维护中？</span>
             </div>
-          </Link>
         )}
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance">
