@@ -31,9 +31,16 @@ export function ServerInfo() {
               <Card className="p-6 border-border bg-card">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-bold text-card-foreground">游戏模式</h3>
-                  <Badge variant="secondary">生存</Badge>
+                  <Badge variant="secondary">生存 / 建筑 / 生电 / 社交 / ？</Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">纯净原版生存，带有增强功能</p>
+              </Card>
+              <Card className="p-6 border-border bg-card">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-bold text-card-foreground">自定义程度</h3>
+                  <Badge variant="secondary">你来决定</Badge>
+                </div>
+                <p className="text-sm text-muted-foreground">我们有专业的 Bukkit 插件开发团队，赞助过的玩家可以自由向管理组要求添加新功能</p>
               </Card>
             </div>
           </div>

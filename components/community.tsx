@@ -25,15 +25,15 @@ export function Community() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <MessageSquare className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-card-foreground">5,000+</h3>
-            <p className="text-muted-foreground">Discord 成员</p>
+            <h3 className="text-2xl font-bold mb-2 text-card-foreground">5+</h3>
+            <p className="text-muted-foreground">QQ 群成员</p>
           </Card>
 
           <Card className="p-8 text-center border-border bg-card hover:shadow-lg transition-shadow">
             <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="w-8 h-8 text-accent" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-card-foreground">10,000+</h3>
+            <h3 className="text-2xl font-bold mb-2 text-card-foreground">5+</h3>
             <p className="text-muted-foreground">注册玩家</p>
           </Card>
 
@@ -41,7 +41,7 @@ export function Community() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <Calendar className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-card-foreground">每周</h3>
+            <h3 className="text-2xl font-bold mb-2 text-card-foreground">暂时没有</h3>
             <p className="text-muted-foreground">社区活动</p>
           </Card>
         </div>
