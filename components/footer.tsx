@@ -46,7 +46,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="/changelog" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   更新日志
                 </a>
               </li>
@@ -73,12 +73,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="/bugs" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   Bug 反馈
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="/contact" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   联系我们
                 </a>
               </li>
