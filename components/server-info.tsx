@@ -48,7 +48,7 @@ export function ServerInfo() {
           <div className={`relative ${isVisible ? "slide-in-right" : "opacity-0"}`}>
             <div className="aspect-square rounded-2xl overflow-hidden border-4 border-border shadow-2xl relative">
               <Image
-                src="/minecraft-survival-base-with-buildings-and-farms.jpg"
+                src="/assets/description.png"
                 alt="Minecraft Server in-game pic"
                 fill
                 className="object-cover"

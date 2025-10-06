@@ -40,7 +40,7 @@ export function Hero({
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/minecraft-survival-landscape-with-mountains-forest.jpg"
+          src="/assets/home.png"
           alt="Minecraft Survival Landscape"
           fill
           priority
@@ -186,8 +186,8 @@ export function Hero({
           <Button size="lg" className="rounded-full px-8" aria-label="开始在 NekoPixel 服务器游戏" asChild>
             <Link href="/join">开始游戏</Link>
           </Button>
-          <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent" aria-label="查看服务器规则">
-            查看规则
+          <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent" aria-label="查看服务器规则" asChild>
+            <Link href="/rules">查看规则</Link>
           </Button>
         </div>
       </div>
