@@ -9,7 +9,13 @@ import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-export function Hero({ description }: { description: string }) {
+export function Hero({
+  description,
+  serverStatus,
+}: {
+  description: string
+  serverStatus: { online: boolean; playerCount: number | null }
+}) {
   const serverIP = "mc.nekopixel.cn"
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -73,8 +79,10 @@ export function Hero({ description }: { description: string }) {
               社区
             </a>
             <ThemeToggle />
-            <Button size="sm" className="rounded-full" aria-label="加入我们的 Discord 服务器">
-              加入 Discord
+            <Button size="sm" className="rounded-full" aria-label="现在开始游玩 NekoPixel！">
+              <Link href="/join">
+                现在加入
+              </Link>
             </Button>
           </div>
           <div className="flex md:hidden items-center gap-2">
@@ -109,8 +117,10 @@ export function Hero({ description }: { description: string }) {
                   >
                     社区
                   </a>
-                  <Button size="lg" className="rounded-full w-full" aria-label="加入我们的 Discord 服务器">
-                    加入 Discord
+                  <Button size="sm" className="rounded-full" aria-label="现在开始游玩 NekoPixel！">
+                    <Link href="/join">
+                      现在加入
+                    </Link>
                   </Button>
                 </nav>
               </SheetContent>
@@ -121,9 +131,19 @@ export function Hero({ description }: { description: string }) {
 
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full">
-          <span className="text-sm font-medium text-accent-foreground">🎮 现已上线 • 247 名玩家在线</span>
-        </div>
+        {serverStatus.online ? (
+          <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full">
+            <span className="text-sm font-medium text-accent-foreground">
+              🎮 服务器活着！• {serverStatus.playerCount !== null ? `${serverStatus.playerCount} 名玩家在线` : "N/A 名玩家在线"}
+            </span>
+          </div>
+        ) : (
+          <Link href="/status">
+            <div className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer">
+              <span className="text-sm font-medium text-yellow-600 dark:text-yellow-500">⚠️ 服务器离线 - 维护中？</span>
+            </div>
+          </Link>
+        )}
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance">
           <span className="text-foreground">Welcome to</span>

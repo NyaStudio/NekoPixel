@@ -49,8 +49,10 @@ export function Navbar() {
             社区
           </Link>
           <ThemeToggle />
-          <Button size="sm" className="rounded-full" aria-label="加入我们的 Discord 服务器">
-            加入 Discord
+          <Button size="sm" className="rounded-full" aria-label="现在开始游玩 NekoPixel！">
+            <Link href="/join">
+              现在加入
+            </Link>
           </Button>
         </div>
         <div className="flex md:hidden items-center gap-2">
@@ -85,8 +87,10 @@ export function Navbar() {
                 >
                   社区
                 </Link>
-                <Button size="lg" className="rounded-full w-full" aria-label="加入我们的 Discord 服务器">
-                  加入 Discord
+                <Button size="sm" className="rounded-full" aria-label="现在开始游玩 NekoPixel！">
+                  <Link href="/join">
+                    现在加入
+                  </Link>
                 </Button>
               </nav>
             </SheetContent>
