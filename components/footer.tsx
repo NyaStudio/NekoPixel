@@ -68,7 +68,7 @@ export function Footer() {
             <h4 className="font-bold mb-4 text-foreground">支持</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="https://afdian.com/a/BLxcwg666" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   捐赠
                 </a>
               </li>
