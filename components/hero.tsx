@@ -5,13 +5,19 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Copy, Menu } from "lucide-react"
 import { toast } from "sonner"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { getRandomDescription } from "@/lib/descriptions"
 
 export function Hero() {
   const serverIP = "mc.nekopixel.cn"
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [description, setDescription] = useState("")
+
+  useEffect(() => {
+    setDescription(getRandomDescription())
+  }, [])
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(serverIP)
@@ -132,7 +138,7 @@ export function Hero() {
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
-          体验终极 Minecraft 生存冒险。在我们充满活力的社区驱动世界中建造、探索和繁荣发展。
+          {description}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
