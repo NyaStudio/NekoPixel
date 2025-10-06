@@ -2,10 +2,8 @@
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { CheckCircle2 } from "lucide-react"
 
 const steps = [
   {
@@ -74,29 +72,29 @@ export default function GettingStarted() {
             </div>
 
             {/* Step-by-Step Guide */}
-            <div className="space-y-6">
+            <div className="space-y-0">
               <h3 className="text-2xl font-bold text-foreground mb-6">详细步骤</h3>
               {steps.map((step, index) => (
-                <Card
+                <div
                   key={index}
-                  className="p-6 border-border bg-card hover:shadow-lg transition-all duration-300"
+                  className="relative flex gap-4 pb-4 last:pb-0"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                        <CheckCircle2 className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Badge variant="secondary">步骤 {index + 1}</Badge>
-                        <h4 className="text-lg font-bold text-card-foreground">{step.title}</h4>
-                      </div>
-                      <p className="text-muted-foreground text-pretty">{step.description}</p>
+                  {index < steps.length - 1 && (
+                    <div className="absolute left-6 top-12 bottom-0 w-0.5 border-l-2 border-dashed border-border" />
+                  )}
+
+                  <div className="flex-shrink-0 relative z-10">
+                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-lg font-bold text-primary-foreground">{index + 1}</span>
                     </div>
                   </div>
-                </Card>
+
+                  <div className="flex-1 pt-1">
+                    <h4 className="text-lg font-bold text-foreground mb-1">{step.title}</h4>
+                    <p className="text-muted-foreground text-pretty">{step.description}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
