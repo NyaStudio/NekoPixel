@@ -184,7 +184,7 @@ export function Hero({
 
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Button size="lg" className="rounded-full px-8" aria-label="开始在 NekoPixel 服务器游戏" asChild>
-            <Link href="/getting-started">开始游戏</Link>
+            <Link href="/join">开始游戏</Link>
           </Button>
           <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent" aria-label="查看服务器规则">
             查看规则
