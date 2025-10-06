@@ -5,19 +5,13 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Copy, Menu } from "lucide-react"
 import { toast } from "sonner"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { getRandomDescription } from "@/lib/descriptions"
 
-export function Hero() {
+export function Hero({ description }: { description: string }) {
   const serverIP = "mc.nekopixel.cn"
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [description, setDescription] = useState("")
-
-  useEffect(() => {
-    setDescription(getRandomDescription())
-  }, [])
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(serverIP)
