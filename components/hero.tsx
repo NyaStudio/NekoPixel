@@ -148,13 +148,13 @@ export function Hero({
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {serverStatus.online ? (
           <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full">
-            <span className="text-sm font-medium text-accent-foreground">
+            <span className="text-sm font-medium text-green-700 dark:text-green-400">
               🎮 服务器活着！• {serverStatus.playerCount !== null ? `${serverStatus.playerCount} 名玩家在线` : "N/A 名玩家在线"}
             </span>
           </div>
         ) : (
             <div className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer">
-              <span className="text-sm font-medium text-yellow-600 dark:text-yellow-500">⚠️ 服务器离线 - 维护中？</span>
+              <span className="text-sm font-medium text-yellow-700 dark:text-yellow-400">⚠️ 服务器离线 - 维护中？</span>
             </div>
         )}
 
