@@ -147,29 +147,29 @@ export function Hero({
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {serverStatus.online ? (
-          <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full">
+          <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700">
             <span className="text-sm font-medium text-green-700 dark:text-green-400">
               🎮 服务器活着！• {serverStatus.playerCount !== null ? `${serverStatus.playerCount} 名玩家在线` : "N/A 名玩家在线"}
             </span>
           </div>
         ) : (
-            <div className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer">
+            <div className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer animate-in fade-in slide-in-from-top-4 duration-700">
               <span className="text-sm font-medium text-yellow-700 dark:text-yellow-400">⚠️ 服务器离线 - 维护中？</span>
             </div>
         )}
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
           <span className="text-foreground">Welcome to</span>
           <br />
-          <span className="text-primary">NekoPixel Network</span>
+          <span className="text-primary bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent animate-in">NekoPixel Network</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
+        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
           {description}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <div className="flex items-center gap-3 bg-card/80 backdrop-blur-sm px-6 py-4 rounded-xl border border-border shadow-lg">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-in fade-in zoom-in-95 duration-1000 delay-500">
+          <div className="flex items-center gap-3 bg-card/80 backdrop-blur-sm px-6 py-4 rounded-xl border border-border shadow-lg hover:shadow-xl hover:scale-105 transition-all">
             <code className="text-lg font-mono text-foreground" aria-label="服务器 IP 地址">
               {serverIP}
             </code>
@@ -180,11 +180,11 @@ export function Hero({
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full px-8" aria-label="开始在 NekoPixel 服务器游戏" asChild>
+        <div className="flex flex-wrap items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
+          <Button size="lg" className="rounded-full px-8 hover:scale-105 transition-transform" aria-label="开始在 NekoPixel 服务器游戏" asChild>
             <Link href="/join">开始游戏</Link>
           </Button>
-          <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent" aria-label="查看服务器规则" asChild>
+          <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent hover:scale-105 transition-transform" aria-label="查看服务器规则" asChild>
             <Link href="/rules">查看规则</Link>
           </Button>
         </div>
