@@ -31,17 +31,17 @@ export function Footer() {
             <h4 className="font-bold mb-4 text-foreground">服务器</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/getting-started" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/join" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   加入服务器
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="/rules" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   服务器规则
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="/staff" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   管理团队
                 </a>
               </li>
