@@ -12,7 +12,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm px-6 py-4" role="navigation" aria-label="Main navigation">
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/60 backdrop-blur-md px-6 py-4" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <div className="w-10 h-10 relative" aria-hidden="true">
