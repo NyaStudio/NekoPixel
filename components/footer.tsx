@@ -1,12 +1,21 @@
+import Image from "next/image"
+import Link from "next/link"
+
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-muted/30 py-12 px-6">
+    <footer className="border-t border-border bg-muted/30 py-12 px-6" role="contentinfo">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">N</span>
+              <div className="w-10 h-10 relative" aria-hidden="true">
+                <Image
+                  src="/logo.png"
+                  alt="NekoPixel Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-lg"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-foreground">NekoPixel</h3>
@@ -14,91 +23,71 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground text-pretty">
-              The ultimate Minecraft survival server experience.
+              Nextgen Modern Minecraft Server Since 2025
             </p>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-4 text-foreground">Server</h4>
+          <nav aria-label="服务器导航">
+            <h4 className="font-bold mb-4 text-foreground">服务器</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Getting Started
+                <Link href="/getting-started" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  加入服务器
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  服务器规则
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Server Rules
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  管理团队
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Commands
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  FAQ
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  更新日志
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h4 className="font-bold mb-4 text-foreground">Community</h4>
+          <nav aria-label="社区导航">
+            <h4 className="font-bold mb-4 text-foreground">社区</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Discord
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Forums
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Wiki
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Vote
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  QQ 群
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h4 className="font-bold mb-4 text-foreground">Support</h4>
+          <nav aria-label="支持导航">
+            <h4 className="font-bold mb-4 text-foreground">支持</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Store
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  捐赠
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Donate
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  Bug 反馈
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Report Bug
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Contact
+                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                  联系我们
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
 
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2025 NekoPixel Network. Not affiliated with Mojang or Microsoft.</p>
+          <p>© 2025 NekoPixel Network. 不隶属于 Mojang Studios 或 Microsoft Corporation.</p>
         </div>
       </div>
     </footer>
