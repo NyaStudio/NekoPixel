@@ -57,7 +57,7 @@ export function Footer() {
             <h4 className="font-bold mb-4 text-foreground">社区</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <a href="https://qm.qq.com/cgi-bin/qm/qr?k=JEesa25-8XOIqNi1cAZnvma-fyQJNRuJ&jump_from=webapi&authKey=KQyzbCM8hz2EAzVpGF2iJI6xVjOCpKJ1W5XlSE2EHd3UYOP/iS67RG+N0HS6RDMf" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   QQ 群
                 </a>
               </li>

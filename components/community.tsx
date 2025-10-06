@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { MessageSquare, Users, Calendar } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Link from "next/link";
 
 export function Community() {
   const { ref, isVisible } = useScrollAnimation()
@@ -21,27 +22,27 @@ export function Community() {
         </div>
 
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 ${isVisible ? "fade-in" : "opacity-0"}`}>
-          <Card className="p-8 text-center border-border bg-card hover:shadow-lg transition-shadow">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center border-border bg-card hover:shadow-lg transition-shadow">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-1">
               <MessageSquare className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-card-foreground">5+</h3>
+            <h3 className="text-2xl font-bold mb-1 text-card-foreground">5+</h3>
             <p className="text-muted-foreground">QQ 群成员</p>
           </Card>
 
-          <Card className="p-8 text-center border-border bg-card hover:shadow-lg transition-shadow">
-            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center border-border bg-card hover:shadow-lg transition-shadow">
+            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-1">
               <Users className="w-8 h-8 text-accent" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-card-foreground">5+</h3>
+            <h3 className="text-2xl font-bold mb-1 text-card-foreground">5+</h3>
             <p className="text-muted-foreground">注册玩家</p>
           </Card>
 
-          <Card className="p-8 text-center border-border bg-card hover:shadow-lg transition-shadow">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center border-border bg-card hover:shadow-lg transition-shadow">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-1">
               <Calendar className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-card-foreground">暂时没有</h3>
+            <h3 className="text-2xl font-bold mb-1 text-card-foreground">暂时没有</h3>
             <p className="text-muted-foreground">社区活动</p>
           </Card>
         </div>
@@ -57,7 +58,9 @@ export function Community() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="rounded-full px-8">
-              加入 Discord 服务器
+              <Link href="https://qm.qq.com/cgi-bin/qm/qr?k=JEesa25-8XOIqNi1cAZnvma-fyQJNRuJ&jump_from=webapi&authKey=KQyzbCM8hz2EAzVpGF2iJI6xVjOCpKJ1W5XlSE2EHd3UYOP/iS67RG+N0HS6RDMf">
+              加入 QQ 群聊
+              </Link>
             </Button>
             <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent">
               查看服务器规则
