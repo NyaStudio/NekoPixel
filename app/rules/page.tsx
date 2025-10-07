@@ -77,20 +77,31 @@ export default function RulesPage() {
               return (
                 <Card
                   key={index}
-                  className="p-6 border-border bg-card hover:shadow-lg transition-shadow"
+                  className="group p-6 border-border bg-card cursor-pointer
+                    hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20
+                    hover:border-primary/50
+                    active:scale-[0.98]
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-12 h-12 ${category.bgColor} rounded-full flex items-center justify-center`}>
-                      <Icon className={`w-6 h-6 ${category.color}`} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="relative flex items-center gap-4 mb-4">
+                    <div className={`w-12 h-12 ${category.bgColor} rounded-full flex items-center justify-center
+                      group-hover:scale-110 group-hover:rotate-12
+                      transition-all duration-500 ease-out`}>
+                      <Icon className={`w-6 h-6 ${category.color}
+                        group-hover:scale-110 group-hover:-rotate-12
+                        transition-all duration-500 ease-out`} />
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground">{category.title}</h3>
+                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">{category.title}</h3>
                   </div>
-                  <ul className="space-y-2">
+                  <ul className="relative space-y-2">
                     {category.rules.map((rule, ruleIndex) => (
                       <li key={ruleIndex} className="flex gap-3 items-start">
-                        <span className="text-primary leading-[1.6]">•</span>
-                        <span className="text-muted-foreground flex-1">{rule}</span>
+                        <span className="text-primary leading-[1.6] group-hover:scale-125 transition-transform duration-300">•</span>
+                        <span className="text-muted-foreground flex-1 group-hover:text-foreground transition-colors duration-300">{rule}</span>
                       </li>
                     ))}
                   </ul>

@@ -83,15 +83,26 @@ export default function BugReportPage() {
               return (
                 <Card
                   key={index}
-                  className="p-6 border-border bg-card hover:shadow-lg transition-all duration-300 flex flex-col"
+                  className="group p-6 border-border bg-card flex flex-col cursor-pointer
+                    hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20
+                    hover:border-primary/50
+                    active:scale-[0.98]
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className={`w-14 h-14 ${method.bgColor} rounded-full flex items-center justify-center mb-4`}>
-                    <Icon className={`w-7 h-7 ${method.color}`} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className={`relative w-14 h-14 ${method.bgColor} rounded-full flex items-center justify-center mb-4
+                    group-hover:scale-110 group-hover:rotate-6
+                    transition-all duration-500 ease-out`}>
+                    <Icon className={`w-7 h-7 ${method.color}
+                      group-hover:scale-110 group-hover:-rotate-6
+                      transition-all duration-500 ease-out`} />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{method.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-6 flex-1">{method.description}</p>
-                  <Button asChild className="w-full">
+                  <h3 className="relative text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{method.title}</h3>
+                  <p className="relative text-muted-foreground text-sm mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">{method.description}</p>
+                  <Button asChild className="relative w-full group-hover:scale-105 transition-transform duration-300">
                     <Link href={method.link} target="_blank" rel="noopener noreferrer">
                       {method.action}
                     </Link>
@@ -114,16 +125,27 @@ export default function BugReportPage() {
               {bugReportGuidelines.map((guideline, index) => (
                 <Card
                   key={index}
-                  className="p-5 border-border bg-card"
+                  className="group p-5 border-border bg-card cursor-pointer
+                    hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10
+                    hover:border-accent/50
+                    active:scale-[0.98]
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Bug className="w-4 h-4 text-primary" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="relative flex items-start gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5
+                      group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-12
+                      transition-all duration-500 ease-out">
+                      <Bug className="w-4 h-4 text-primary
+                        group-hover:scale-110 group-hover:-rotate-12
+                        transition-all duration-500 ease-out" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">{guideline.title}</h4>
-                      <p className="text-sm text-muted-foreground">{guideline.description}</p>
+                      <h4 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">{guideline.title}</h4>
+                      <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{guideline.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -133,12 +155,18 @@ export default function BugReportPage() {
 
           {/* Notice */}
           <div
-            className={`bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border ${
-              isVisible ? "scale-in" : "opacity-0"
-            }`}
+            className={`group bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border
+              hover:from-primary/20 hover:to-accent/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10
+              hover:scale-[1.02]
+              active:scale-[0.99]
+              transition-all duration-700 ease-out
+              will-change-transform
+              relative overflow-hidden
+              ${isVisible ? "scale-in" : "opacity-0"}`}
           >
-            <h3 className="text-2xl font-bold mb-4 text-foreground">感谢你的贡献</h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto text-pretty">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <h3 className="relative text-2xl font-bold mb-4 text-foreground group-hover:scale-105 transition-transform duration-300">感谢你的贡献</h3>
+            <p className="relative text-muted-foreground max-w-3xl mx-auto text-pretty group-hover:text-foreground transition-colors duration-300">
               每一个 Bug 报告都是对我们的帮助。我们会认真对待每一条反馈，并尽快修复问题。
               <br />
               感谢你帮助 NekoPixel 变得更好！

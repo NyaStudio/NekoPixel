@@ -20,27 +20,48 @@ export function ServerInfo() {
             </p>
 
             <div className="space-y-4">
-              <Card className="p-6 border-border bg-card">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-card-foreground">服务器版本</h3>
-                  <Badge variant="secondary">1.21.8</Badge>
+              <Card className="group p-6 border-border bg-card cursor-pointer
+                hover:-translate-x-2 hover:shadow-xl hover:shadow-primary/10
+                hover:border-primary/50
+                active:scale-[0.98]
+                transition-all duration-500 ease-out
+                will-change-transform
+                relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="flex items-center justify-between mb-2 relative">
+                  <h3 className="font-bold text-card-foreground group-hover:text-primary transition-colors duration-300">服务器版本</h3>
+                  <Badge variant="secondary" className="group-hover:scale-110 transition-transform duration-300">1.21.8</Badge>
                 </div>
-                <p className="text-sm text-muted-foreground">始终更新到最新的 Minecraft 版本</p>
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 relative">始终更新到最新的 Minecraft 版本</p>
               </Card>
 
-              <Card className="p-6 border-border bg-card">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-card-foreground">游戏模式</h3>
-                  <Badge variant="secondary">生存 / 建筑 / 生电 / 社交 / ？</Badge>
+              <Card className="group p-6 border-border bg-card cursor-pointer
+                hover:-translate-x-2 hover:shadow-xl hover:shadow-accent/10
+                hover:border-accent/50
+                active:scale-[0.98]
+                transition-all duration-500 ease-out
+                will-change-transform
+                relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="flex items-center justify-between mb-2 relative">
+                  <h3 className="font-bold text-card-foreground group-hover:text-accent transition-colors duration-300">游戏模式</h3>
+                  <Badge variant="secondary" className="group-hover:scale-110 transition-transform duration-300">生存 / 建筑 / 生电 / 社交 / ？</Badge>
                 </div>
-                <p className="text-sm text-muted-foreground">纯净原版生存，带有增强功能</p>
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 relative">纯净原版生存，带有增强功能</p>
               </Card>
-              <Card className="p-6 border-border bg-card">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-card-foreground">自定义程度</h3>
-                  <Badge variant="secondary">你来决定</Badge>
+              <Card className="group p-6 border-border bg-card cursor-pointer
+                hover:-translate-x-2 hover:shadow-xl hover:shadow-primary/10
+                hover:border-primary/50
+                active:scale-[0.98]
+                transition-all duration-500 ease-out
+                will-change-transform
+                relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="flex items-center justify-between mb-2 relative">
+                  <h3 className="font-bold text-card-foreground group-hover:text-primary transition-colors duration-300">自定义程度</h3>
+                  <Badge variant="secondary" className="group-hover:scale-110 transition-transform duration-300">你来决定</Badge>
                 </div>
-                <p className="text-sm text-muted-foreground">我们有专业的 Bukkit 插件开发团队，赞助过的玩家可以自由向管理组要求添加新功能</p>
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 relative">我们有专业的 Bukkit 插件开发团队，赞助过的玩家可以自由向管理组要求添加新功能</p>
               </Card>
             </div>
           </div>

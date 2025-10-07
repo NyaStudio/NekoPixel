@@ -91,15 +91,26 @@ export default function ContactPage() {
               return (
                 <Card
                   key={index}
-                  className="p-6 border-border bg-card hover:shadow-lg transition-all duration-300"
+                  className="group p-6 border-border bg-card cursor-pointer
+                    hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20
+                    hover:border-primary/50
+                    active:scale-[0.98]
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className={`w-12 h-12 ${method.bgColor} rounded-full flex items-center justify-center mb-3`}>
-                    <Icon className={`w-6 h-6 ${method.color}`} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className={`relative w-12 h-12 ${method.bgColor} rounded-full flex items-center justify-center mb-3
+                    group-hover:scale-110 group-hover:rotate-6
+                    transition-all duration-500 ease-out`}>
+                    <Icon className={`w-6 h-6 ${method.color}
+                      group-hover:scale-110 group-hover:-rotate-6
+                      transition-all duration-500 ease-out`} />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{method.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
-                  <Button asChild className="w-full" size="sm">
+                  <h3 className="relative text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{method.title}</h3>
+                  <p className="relative text-sm text-muted-foreground mb-3 group-hover:text-foreground transition-colors duration-300">{method.description}</p>
+                  <Button asChild className="relative w-full group-hover:scale-105 transition-transform duration-300" size="sm">
                     <Link href={method.link} target="_blank" rel="noopener noreferrer">
                       {method.action}
                     </Link>
@@ -116,15 +127,26 @@ export default function ContactPage() {
               return (
                 <Card
                   key={index}
-                  className="p-6 border-border bg-card flex items-center gap-4"
+                  className="group p-6 border-border bg-card flex items-center gap-4 cursor-pointer
+                    hover:-translate-x-2 hover:shadow-xl hover:shadow-primary/10
+                    hover:border-primary/50
+                    active:scale-[0.98]
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.15}s` }}
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6 text-primary" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="relative w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0
+                    group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-12
+                    transition-all duration-500 ease-out">
+                    <Icon className="w-6 h-6 text-primary
+                      group-hover:scale-110 group-hover:-rotate-12
+                      transition-all duration-500 ease-out" />
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                    <p className="text-lg font-semibold text-foreground">{info.value}</p>
+                  <div className="relative">
+                    <p className="text-sm text-muted-foreground mb-1 group-hover:text-foreground transition-colors duration-300">{info.label}</p>
+                    <p className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">{info.value}</p>
                   </div>
                 </Card>
               )
@@ -144,14 +166,21 @@ export default function ContactPage() {
               {faqItems.map((item, index) => (
                 <Card
                   key={index}
-                  className="p-6 border-border bg-card"
+                  className="group p-6 border-border bg-card cursor-pointer
+                    hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10
+                    hover:border-accent/50
+                    active:scale-[0.98]
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <h4 className="font-semibold text-foreground mb-2 flex items-start gap-2">
-                    <span className="text-primary mt-0.5">Q:</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <h4 className="relative font-semibold text-foreground mb-2 flex items-start gap-2 group-hover:text-primary transition-colors duration-300">
+                    <span className="text-primary mt-0.5 group-hover:scale-125 transition-transform duration-300">Q:</span>
                     <span>{item.question}</span>
                   </h4>
-                  <p className="text-sm text-muted-foreground ml-6">{item.answer}</p>
+                  <p className="relative text-sm text-muted-foreground ml-6 group-hover:text-foreground transition-colors duration-300">{item.answer}</p>
                 </Card>
               ))}
             </div>
@@ -159,12 +188,18 @@ export default function ContactPage() {
 
           {/* Notice */}
           <div
-            className={`bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border ${
-              isVisible ? "scale-in" : "opacity-0"
-            }`}
+            className={`group bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border
+              hover:from-primary/20 hover:to-accent/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10
+              hover:scale-[1.02]
+              active:scale-[0.99]
+              transition-all duration-700 ease-out
+              will-change-transform
+              relative overflow-hidden
+              ${isVisible ? "scale-in" : "opacity-0"}`}
           >
-            <h3 className="text-2xl font-bold mb-4 text-foreground">我们期待你的声音</h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto text-pretty">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <h3 className="relative text-2xl font-bold mb-4 text-foreground group-hover:scale-105 transition-transform duration-300">我们期待你的声音</h3>
+            <p className="relative text-muted-foreground max-w-3xl mx-auto text-pretty group-hover:text-foreground transition-colors duration-300">
               无论是问题、建议还是单纯想聊聊天，我们都欢迎你的联系。
               <br />
               你的每一条反馈都能帮助我们做得更好！

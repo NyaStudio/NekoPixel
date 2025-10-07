@@ -58,16 +58,37 @@ export function Features() {
             return (
               <Card
                 key={index}
-                className={`p-6 hover:shadow-lg transition-all duration-300 border-border bg-card ${
-                  isVisible ? "scale-in" : "opacity-0"
-                }`}
+                className={`group p-6 cursor-pointer
+                  hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20
+                  hover:border-primary/50
+                  active:scale-[0.98]
+                  transition-all duration-500 ease-out
+                  border-border bg-card
+                  will-change-transform
+                  relative overflow-hidden
+                  ${isVisible ? "scale-in" : "opacity-0"}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-primary" />
+                {/* 渐变边框效果 */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                {/* 图标容器 */}
+                <div className="relative w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4
+                  group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-3
+                  transition-all duration-500 ease-out">
+                  <Icon className="w-6 h-6 text-primary
+                    group-hover:scale-110 group-hover:rotate-12
+                    transition-all duration-500 ease-out" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-card-foreground">{feature.title}</h3>
-                <p className="text-muted-foreground text-pretty">{feature.description}</p>
+
+                <h3 className="text-xl font-bold mb-2 text-card-foreground
+                  group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-pretty
+                  group-hover:text-foreground transition-colors duration-300">
+                  {feature.description}
+                </p>
               </Card>
             )
           })}

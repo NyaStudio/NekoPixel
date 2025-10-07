@@ -106,34 +106,43 @@ export default function StaffPage() {
             {staffMembers.map((member, index) => (
               <Card
                 key={index}
-                className="p-6 border-border bg-card hover:shadow-lg transition-all duration-300"
+                className="group p-6 border-border bg-card cursor-pointer
+                  hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20
+                  hover:border-primary/50
+                  active:scale-[0.98]
+                  transition-all duration-500 ease-out
+                  will-change-transform
+                  relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 {/* Avatar */}
-                <div className="flex flex-col items-center mb-4">
-                  <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                <div className="relative flex flex-col items-center mb-4">
+                  <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-primary/20
+                    group-hover:border-primary/50 group-hover:scale-110 group-hover:rotate-6
+                    transition-all duration-500 ease-out">
                     <Image
                       src={member.avatar}
                       alt={member.name}
                       width={96}
                       height={96}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary group-hover:scale-105 transition-all duration-300">{member.name}</h3>
                   <Badge
                     variant="secondary"
-                    className={`mt-2 ${member.role.includes('OWNER') ? 'bg-red-500/20 text-red-600 dark:text-red-500 border-red-500/30' : ''}`}
+                    className={`mt-2 group-hover:scale-110 transition-transform duration-300 ${member.role.includes('OWNER') ? 'bg-red-500/20 text-red-600 dark:text-red-500 border-red-500/30' : ''}`}
                   >
                     {member.role}
                   </Badge>
                 </div>
 
                 {/* Bio */}
-                <p className="text-muted-foreground text-center mb-4 text-sm">{member.bio}</p>
+                <p className="relative text-muted-foreground text-center mb-4 text-sm group-hover:text-foreground transition-colors duration-300">{member.bio}</p>
 
                 {/* Social Links */}
-                <div className="flex items-center justify-center gap-4 pt-4 border-t border-border">
+                <div className="relative flex items-center justify-center gap-4 pt-4 border-t border-border group-hover:border-primary/30 transition-colors duration-300">
                   {member.socials.map((social, socialIndex) => (
                     <SocialIcon key={socialIndex} social={social} />
                   ))}
@@ -144,12 +153,18 @@ export default function StaffPage() {
 
           {/* Join Team CTA */}
           <div
-            className={`mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border ${
-              isVisible ? "scale-in" : "opacity-0"
-            }`}
+            className={`group mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border
+              hover:from-primary/20 hover:to-accent/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10
+              hover:scale-[1.02]
+              active:scale-[0.99]
+              transition-all duration-700 ease-out
+              will-change-transform
+              relative overflow-hidden
+              ${isVisible ? "scale-in" : "opacity-0"}`}
           >
-            <h3 className="text-2xl font-bold mb-4 text-foreground">想加入我们的团队？</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <h3 className="relative text-2xl font-bold mb-4 text-foreground group-hover:scale-105 transition-transform duration-300">想加入我们的团队？</h3>
+            <p className="relative text-muted-foreground max-w-2xl mx-auto text-pretty group-hover:text-foreground transition-colors duration-300">
               我们一直在寻找热心、负责的玩家加入管理团队。如果你有兴趣帮助维护服务器秩序，欢迎联系我们！
             </p>
           </div>

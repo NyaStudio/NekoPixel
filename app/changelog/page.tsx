@@ -82,33 +82,42 @@ export default function ChangelogPage() {
               return (
                 <Card
                   key={index}
-                  className="border-border bg-card hover:shadow-lg transition-shadow overflow-hidden"
+                  className="group border-border bg-card
+                    hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50
+                    transition-all duration-500 ease-out
+                    will-change-transform
+                    relative overflow-hidden"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   {/* Header - Always Visible */}
                   <button
                     onClick={() => toggleExpand(index)}
-                    className="w-full px-5 py-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
+                    className="relative w-full px-5 py-4 flex items-center justify-between hover:bg-accent/5 active:scale-[0.99] transition-all duration-300"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Calendar className="w-4 h-4 text-primary" />
+                      <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center
+                        group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-12
+                        transition-all duration-500 ease-out">
+                        <Calendar className="w-4 h-4 text-primary
+                          group-hover:scale-110 group-hover:-rotate-12
+                          transition-all duration-500 ease-out" />
                       </div>
                       <div className="text-left">
-                        <h2 className="text-lg font-bold text-foreground">{update.date}</h2>
-                        <Badge className={`mt-0.5 text-xs ${typeConfig[update.type].color}`}>
+                        <h2 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">{update.date}</h2>
+                        <Badge className={`mt-0.5 text-xs ${typeConfig[update.type].color} group-hover:scale-110 transition-transform duration-300`}>
                           {typeConfig[update.type].label}
                         </Badge>
                       </div>
                     </div>
-                    <div className="text-muted-foreground">
+                    <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
                       {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                     </div>
                   </button>
 
                   {/* Changes - Collapsible */}
                   {isExpanded && (
-                    <div className="px-5 pb-4 pt-3 border-t border-border">
+                    <div className="px-5 pb-4 pt-3 border-t border-border relative">
                       <div className="space-y-4">
                         {update.changes.map((change, changeIndex) => {
                           const Icon = categoryIcons[change.category]
@@ -140,12 +149,18 @@ export default function ChangelogPage() {
 
           {/* Notice */}
           <div
-            className={`mt-12 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border ${
-              isVisible ? "scale-in" : "opacity-0"
-            }`}
+            className={`group mt-12 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border
+              hover:from-primary/20 hover:to-accent/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10
+              hover:scale-[1.02]
+              active:scale-[0.99]
+              transition-all duration-700 ease-out
+              will-change-transform
+              relative overflow-hidden
+              ${isVisible ? "scale-in" : "opacity-0"}`}
           >
-            <h3 className="text-2xl font-bold mb-4 text-foreground">保持关注</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <h3 className="relative text-2xl font-bold mb-4 text-foreground group-hover:scale-105 transition-transform duration-300">保持关注</h3>
+            <p className="relative text-muted-foreground max-w-2xl mx-auto text-pretty group-hover:text-foreground transition-colors duration-300">
               我们会定期更新服务器，为玩家带来更好的游戏体验。请关注我们的 QQ 群获取最新消息。
             </p>
           </div>
