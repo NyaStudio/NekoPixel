@@ -161,7 +161,7 @@ export function Hero({
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
           <span className="text-foreground">Welcome to</span>
           <br />
-          <span className="text-primary bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent animate-in">NekoPixel Network</span>
+          <span className="rainbow-flow bg-gradient-to-r from-red-500 via-orange-500 via-yellow-500 via-lime-500 via-green-500 via-emerald-500 via-teal-500 via-cyan-500 via-sky-500 via-blue-500 via-indigo-500 via-violet-500 via-purple-500 via-fuchsia-500 via-pink-500 to-red-500 bg-clip-text text-transparent">NekoPixel Network</span>
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">

@@ -202,4 +202,38 @@
       transform: scale(1);
     }
   }
+
+  @keyframes rainbowFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  .rainbow-flow {
+    background: linear-gradient(
+            270deg,
+            #ff0000,   /* 红 */
+            #ff7f00,   /* 橙 */
+            #ffff00,   /* 黄 */
+            #7fff00,   /* 黄绿 */
+            #00ff00,   /* 绿 */
+            #00ff7f,   /* 青绿 */
+            #00ffff,   /* 青 */
+            #007fff,   /* 天蓝 */
+            #0000ff,   /* 蓝 */
+            #7f00ff,   /* 靛紫 */
+            #ff00ff,   /* 紫 */
+            #ff007f,   /* 品红 */
+            #ff0000    /* 再回到红，形成闭环 */
+    );
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    animation: rainbowFlow 6s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
