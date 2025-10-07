@@ -14,6 +14,18 @@ export function ThemeToggle() {
     setMounted(true)
   }, [])
 
+  const toggleTheme = () => {
+    // 检查浏览器是否支持 View Transitions API
+    if ('startViewTransition' in document) {
+      (document as any).startViewTransition(() => {
+        setTheme(theme === "dark" ? "light" : "dark")
+      })
+    } else {
+      // 降级到普通切换
+      setTheme(theme === "dark" ? "light" : "dark")
+    }
+  }
+
   if (!mounted) {
     return (
       <Button size="icon" variant="ghost" disabled>
@@ -26,7 +38,7 @@ export function ThemeToggle() {
     <Button
       size="icon"
       variant="ghost"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={toggleTheme}
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (

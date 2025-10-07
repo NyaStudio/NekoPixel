@@ -123,9 +123,23 @@
   }
   body {
     @apply bg-background text-foreground;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* 为所有颜色相关属性添加过渡 */
+  *,
+  *::before,
+  *::after {
+    transition:
+      color 0.3s ease-in-out,
+      background-color 0.3s ease-in-out,
+      border-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out,
+      fill 0.3s ease-in-out,
+      stroke 0.3s ease-in-out;
   }
 }
 
@@ -235,5 +249,31 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+  }
+}
+
+/* View Transitions API 动画效果 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
 }
