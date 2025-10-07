@@ -1,8 +1,7 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
+import { PageHero } from "@/components/page-hero"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const steps = [
@@ -33,23 +32,18 @@ export default function GettingStarted() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <PageHero
+        title="加入"
+        titleHighlight="NekoPixel Network"
+        badge="新手指南"
+        description="按照以下简单步骤连接到我们的 Minecraft 服务器，开始你的冒险！"
+        backgroundImage="/assets/join.png"
+      />
 
       <main className="flex-1 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div ref={ref} className={`text-center mb-16 ${isVisible ? "slide-up" : "opacity-0"}`}>
-            <Badge className="mb-4 bg-accent text-accent-foreground">新手指南</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              加入 <span className="text-primary">NekoPixel Network</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              按照以下简单步骤连接到我们的 Minecraft 服务器，开始你的冒险！
-            </p>
-          </div>
-
           {/* Main Content */}
-          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${isVisible ? "fade-in" : "opacity-0"}`}>
+          <div ref={ref} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${isVisible ? "fade-in" : "opacity-0"}`}>
             {/* Video Tutorial */}
             <div className="sticky top-24">
               <h3 className="text-xl font-bold mb-4 text-foreground">视频教程</h3>

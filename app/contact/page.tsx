@@ -1,8 +1,7 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
+import { PageHero } from "@/components/page-hero"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
@@ -75,23 +74,18 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <PageHero
+        title="联系"
+        titleHighlight="我们"
+        badge="Contact Us"
+        description="有任何问题或建议？我们随时欢迎你的反馈！"
+        backgroundImage="/assets/contact.png"
+      />
 
       <main className="flex-1 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div ref={ref} className={`text-center mb-16 ${isVisible ? "slide-up" : "opacity-0"}`}>
-            <Badge className="mb-4 bg-accent text-accent-foreground">Contact Us</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              联系 <span className="text-primary">我们</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              有任何问题或建议？我们随时欢迎你的反馈！
-            </p>
-          </div>
-
           {/* Contact Methods */}
-          <div className={`max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 ${isVisible ? "fade-in" : "opacity-0"}`}>
+          <div ref={ref} className={`max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 ${isVisible ? "fade-in" : "opacity-0"}`}>
             {contactMethods.map((method, index) => {
               const Icon = method.icon
               return (

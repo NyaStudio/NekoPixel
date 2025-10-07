@@ -1,8 +1,7 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
+import { PageHero } from "@/components/page-hero"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { AlertTriangle, Shield, Users, Hammer } from "lucide-react"
@@ -61,23 +60,18 @@ export default function RulesPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <PageHero
+        title="服务器"
+        titleHighlight="规则"
+        badge="Server Rules"
+        description="为了营造一个友好、公平、有趣的游戏环境，请所有玩家遵守以下规则"
+        backgroundImage="/assets/rules.png"
+      />
 
       <main className="flex-1 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div ref={ref} className={`text-center mb-16 ${isVisible ? "slide-up" : "opacity-0"}`}>
-            <Badge className="mb-4 bg-accent text-accent-foreground">Server Rules</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              服务器 <span className="text-primary">规则</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              为了营造一个友好、公平、有趣的游戏环境，请所有玩家遵守以下规则
-            </p>
-          </div>
-
           {/* Rules Grid */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 ${isVisible ? "fade-in" : "opacity-0"}`}>
+          <div ref={ref} className={`grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 ${isVisible ? "fade-in" : "opacity-0"}`}>
             {ruleCategories.map((category, index) => {
               const Icon = category.icon
               return (

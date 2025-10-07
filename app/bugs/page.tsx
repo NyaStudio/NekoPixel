@@ -1,8 +1,7 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
+import { PageHero } from "@/components/page-hero"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
@@ -67,23 +66,18 @@ export default function BugReportPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <PageHero
+        title="Bug"
+        titleHighlight="反馈"
+        badge="Bug Report"
+        description="发现问题？请告诉我们！你的反馈将帮助我们改进服务器，为所有玩家提供更好的体验"
+        backgroundImage="/assets/bugs.png"
+      />
 
       <main className="flex-1 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div ref={ref} className={`text-center mb-16 ${isVisible ? "slide-up" : "opacity-0"}`}>
-            <Badge className="mb-4 bg-accent text-accent-foreground">Bug Report</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              Bug <span className="text-primary">反馈</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              发现问题？请告诉我们！你的反馈将帮助我们改进服务器，为所有玩家提供更好的体验
-            </p>
-          </div>
-
           {/* Report Methods */}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 ${isVisible ? "fade-in" : "opacity-0"}`}>
+          <div ref={ref} className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 ${isVisible ? "fade-in" : "opacity-0"}`}>
             {reportMethods.map((method, index) => {
               const Icon = method.icon
               return (

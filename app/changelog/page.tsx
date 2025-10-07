@@ -1,6 +1,6 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
+import { PageHero } from "@/components/page-hero"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
@@ -65,23 +65,18 @@ export default function ChangelogPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <PageHero
+        title="更新"
+        titleHighlight="日志"
+        badge="Changelog"
+        description="查看服务器的最新更新和改进，了解我们为玩家带来的新功能和优化"
+        backgroundImage="/assets/changelog.png"
+      />
 
       <main className="flex-1 py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <div ref={ref} className={`text-center mb-16 ${isVisible ? "slide-up" : "opacity-0"}`}>
-            <Badge className="mb-4 bg-accent text-accent-foreground">Changelog</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              更新 <span className="text-primary">日志</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              查看服务器的最新更新和改进，了解我们为玩家带来的新功能和优化
-            </p>
-          </div>
-
           {/* Updates Timeline */}
-          <div className={`space-y-1 ${isVisible ? "fade-in" : "opacity-0"}`}>
+          <div ref={ref} className={`space-y-1 ${isVisible ? "fade-in" : "opacity-0"}`}>
             {updates.map((update, index) => {
               const isExpanded = expandedIndex === index
               return (
