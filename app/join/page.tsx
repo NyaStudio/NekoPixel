@@ -45,7 +45,7 @@ export default function GettingStarted() {
           {/* Main Content */}
           <div ref={ref} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${isVisible ? "fade-in" : "opacity-0"}`}>
             {/* Video Tutorial */}
-            <div className="sticky top-24">
+            <div className="lg:sticky lg:top-24">
               <h3 className="text-xl font-bold mb-4 text-foreground">视频教程</h3>
               <div className="aspect-video rounded-xl overflow-hidden shadow-2xl border border-border">
                 <video
