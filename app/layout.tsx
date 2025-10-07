@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "NekoPixel Network - Nextgen Modern Minecraft Server Since 2025",
     description,
-    keywords: ["Minecraft", "生存", "服务器", "游戏", "社区", "多人游戏", "NekoPixel"],
+    keywords: ["Minecraft", "生存", "服务器", "游戏", "社区", "多人游戏", "NekoPixel", "广西火速网络科技有限公司"],
     authors: [{ name: "NekoPixel Network" }],
     creator: "NekoPixel Network",
     publisher: "NekoPixel Network",

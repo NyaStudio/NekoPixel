@@ -89,6 +89,7 @@ export function Footer() {
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>© 2025 NekoPixel Network. 不隶属于 Mojang Studios 或 Microsoft Corporation.</p>
           <p className="mt-2">
+            广西火速网络科技有限公司ㅤ&ㅤ
             <a
               href="https://beian.miit.gov.cn"
               target="_blank"
