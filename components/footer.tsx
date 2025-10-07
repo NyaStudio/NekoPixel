@@ -31,22 +31,22 @@ export function Footer() {
             <h4 className="font-bold mb-4 text-foreground">服务器</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/join" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/join" prefetch={true} className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   加入服务器
                 </Link>
               </li>
               <li>
-                <Link href="/rules" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/rules" prefetch={true} className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   服务器规则
                 </Link>
               </li>
               <li>
-                <Link href="/staff" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/staff" prefetch={true} className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   管理团队
                 </Link>
               </li>
               <li>
-                <Link href="/changelog" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/changelog" prefetch={true} className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   更新日志
                 </Link>
               </li>
@@ -73,12 +73,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/bugs" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/bugs" prefetch={true} className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   Bug 反馈
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/contact" prefetch={true} className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   联系我们
                 </Link>
               </li>
