@@ -8,7 +8,10 @@ import { getRandomDescription } from "@/lib/descriptions"
 async function getServerStatus() {
   try {
     const res = await fetch("https://api.mcsrvstat.us/3/mc.nekopixel.cn", {
-      next: { revalidate: 60 },
+        next: { revalidate: 60 },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; NekoPixel Server Monitor/1.0; +https://www.nekopixel.cn/)"
+        },
     })
     const data = await res.json()
     return {
