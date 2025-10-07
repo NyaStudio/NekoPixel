@@ -39,14 +39,23 @@ export function Hero({
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/home.png"
-          alt="Minecraft Survival Landscape"
-          fill
-          priority
-          className="object-cover"
-          quality={90}
-        />
+        <video
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+        >
+          <source src="/assets/home.webm" type="video/webm" />
+          <Image
+            src="/assets/home.png"
+            alt="NekoPixel Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
