@@ -112,9 +112,14 @@ export default function RulesPage() {
 
           {/* Notice */}
           <div
-            className={`bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border ${
-              isVisible ? "scale-in" : "opacity-0"
-            }`}
+              className={`group bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-border
+              hover:from-primary/20 hover:to-accent/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10
+              hover:scale-[1.02]
+              active:scale-[0.99]
+              transition-all duration-700 ease-out
+              will-change-transform
+              relative overflow-hidden
+              ${isVisible ? "scale-in" : "opacity-0"}`}
           >
             <h3 className="text-2xl font-bold mb-4 text-foreground">重要提示</h3>
             <p className="text-muted-foreground max-w-3xl mx-auto text-pretty">
