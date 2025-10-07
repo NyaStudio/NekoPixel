@@ -36,19 +36,19 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="/rules" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/rules" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   服务器规则
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/staff" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/staff" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   管理团队
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/changelog" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/changelog" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   更新日志
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -73,14 +73,14 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/bugs" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/bugs" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   Bug 反馈
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
+                <Link href="/contact" className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">
                   联系我们
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
