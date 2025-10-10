@@ -39,7 +39,7 @@ export function Community() {
             </div>
             <h3 className="text-2xl font-bold mb-1 text-card-foreground relative
               group-hover:text-primary group-hover:scale-110
-              transition-all duration-300">5+</h3>
+              transition-all duration-300">10+</h3>
             <p className="text-muted-foreground relative group-hover:text-foreground transition-colors duration-300">QQ 群成员</p>
           </Card>
 
@@ -60,7 +60,7 @@ export function Community() {
             </div>
             <h3 className="text-2xl font-bold mb-1 text-card-foreground relative
               group-hover:text-accent group-hover:scale-110
-              transition-all duration-300">5+</h3>
+              transition-all duration-300">10+</h3>
             <p className="text-muted-foreground relative group-hover:text-foreground transition-colors duration-300">注册玩家</p>
           </Card>
 
