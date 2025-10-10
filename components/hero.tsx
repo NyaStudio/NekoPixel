@@ -11,14 +11,21 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Hero({
   description,
-  serverStatus,
 }: {
   description: string
-  serverStatus: { online: boolean; playerCount: number | null }
 }) {
   const serverIP = "mc.nekopixel.cn"
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [serverStatus, setServerStatus] = useState<{
+    online: boolean
+    playerCount: number | null
+    loading: boolean
+  }>({
+    online: false,
+    playerCount: null,
+    loading: true,
+  })
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +33,30 @@ export function Hero({
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const fetchServerStatus = async () => {
+      try {
+        const res = await fetch("https://api.mcsrvstat.us/3/mc.nekopixel.cn")
+        const data = await res.json()
+        setServerStatus({
+          online: data?.online ?? false,
+          playerCount: data?.players?.online ?? null,
+          loading: false,
+        })
+      } catch {
+        setServerStatus({
+          online: false,
+          playerCount: null,
+          loading: false,
+        })
+      }
+    }
+
+    fetchServerStatus()
+    const interval = setInterval(fetchServerStatus, 60000)
+    return () => clearInterval(interval)
   }, [])
 
   const copyToClipboard = () => {
@@ -159,7 +190,13 @@ export function Hero({
 
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {serverStatus.online ? (
+        {serverStatus.loading ? (
+          <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700">
+            <span className="text-sm font-medium text-muted-foreground">
+              🔄 加载服务器状态...
+            </span>
+          </div>
+        ) : serverStatus.online ? (
           <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700">
             <span className="text-sm font-medium text-green-700 dark:text-green-400">
               🎮 服务器活着！• {serverStatus.playerCount !== null ? `${serverStatus.playerCount} 名玩家在线` : "N/A 名玩家在线"}
