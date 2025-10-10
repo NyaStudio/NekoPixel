@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Copy, Menu } from "lucide-react"
 import { toast } from "sonner"
 import { useState, useEffect } from "react"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Hero({
@@ -118,30 +118,34 @@ export function Hero({
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col gap-6 mt-8" aria-label="移动端导航">
+              <SheetContent side="right" className="w-[85vw] sm:w-[350px] px-6 py-8">
+                <SheetHeader className="sr-only">
+                  <SheetTitle>导航菜单</SheetTitle>
+                  <SheetDescription>主导航菜单</SheetDescription>
+                </SheetHeader>
+                <nav className="flex flex-col gap-3 mt-4" aria-label="移动端导航">
                   <a
                     href="#features"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                    className="text-base font-medium text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-md px-4 py-3"
                   >
                     特性
                   </a>
                   <a
                     href="#server"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                    className="text-base font-medium text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-md px-4 py-3"
                   >
                     服务器信息
                   </a>
                   <a
                     href="#community"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                    className="text-base font-medium text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-md px-4 py-3"
                   >
                     社区
                   </a>
-                  <Button size="sm" className="rounded-full" aria-label="现在开始游玩 NekoPixel！">
+                  <Button size="sm" className="rounded-full mt-4 w-full py-5" aria-label="现在开始游玩 NekoPixel！">
                     <Link href="/join">
                       现在加入
                     </Link>
