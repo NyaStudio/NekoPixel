@@ -17,13 +17,11 @@ export function Hero({
   const serverIP = "mc.nekopixel.cn"
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [serverStatus, setServerStatus] = useState<{
-    online: boolean
-    playerCount: number | null
+  const [systemStatus, setSystemStatus] = useState<{
+    allOperational: boolean
     loading: boolean
   }>({
-    online: false,
-    playerCount: null,
+    allOperational: false,
     loading: true,
   })
 
@@ -36,26 +34,43 @@ export function Hero({
   }, [])
 
   useEffect(() => {
-    const fetchServerStatus = async () => {
+    const fetchSystemStatus = async () => {
       try {
-        const res = await fetch("https://api.mcsrvstat.us/3/mc.nekopixel.cn")
+        const res = await fetch("https://status.nekopixel.cn/api/status-page/heartbeat/nekopixel")
         const data = await res.json()
-        setServerStatus({
-          online: data?.online ?? false,
-          playerCount: data?.players?.online ?? null,
+
+        // Check if all heartbeats have status === 1
+        let allOperational = true
+        if (data?.heartbeatList) {
+          for (const key in data.heartbeatList) {
+            const heartbeats = data.heartbeatList[key]
+            if (Array.isArray(heartbeats)) {
+              // Check if any heartbeat has status !== 1
+              const hasFailure = heartbeats.some((beat: { status: number }) => beat.status !== 1)
+              if (hasFailure) {
+                allOperational = false
+                break
+              }
+            }
+          }
+        } else {
+          allOperational = false
+        }
+
+        setSystemStatus({
+          allOperational,
           loading: false,
         })
       } catch {
-        setServerStatus({
-          online: false,
-          playerCount: null,
+        setSystemStatus({
+          allOperational: false,
           loading: false,
         })
       }
     }
 
-    fetchServerStatus()
-    const interval = setInterval(fetchServerStatus, 60000)
+    fetchSystemStatus()
+    const interval = setInterval(fetchSystemStatus, 60000)
     return () => clearInterval(interval)
   }, [])
 
@@ -190,22 +205,37 @@ export function Hero({
 
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {serverStatus.loading ? (
-          <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700">
+        {systemStatus.loading ? (
+          <a
+            href="https://status.nekopixel.cn/status/nekopixel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700 hover:bg-accent/30 transition-colors"
+          >
             <span className="text-sm font-medium text-muted-foreground">
-              🔄 加载服务器状态...
+              🔄 加载状态...
             </span>
-          </div>
-        ) : serverStatus.online ? (
-          <div className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700">
+          </a>
+        ) : systemStatus.allOperational ? (
+          <a
+            href="https://status.nekopixel.cn/status/nekopixel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700 hover:bg-accent/30 transition-colors"
+          >
             <span className="text-sm font-medium text-green-700 dark:text-green-400">
-              🎮 服务器活着！• {serverStatus.playerCount !== null ? `${serverStatus.playerCount} 名玩家在线` : "N/A 名玩家在线"}
+              ✅ 所有服务运行正常
             </span>
-          </div>
+          </a>
         ) : (
-            <div className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer animate-in fade-in slide-in-from-top-4 duration-700">
-              <span className="text-sm font-medium text-yellow-700 dark:text-yellow-400">⚠️ 服务器离线 - 维护中？</span>
-            </div>
+          <a
+            href="https://status.nekopixel.cn/status/nekopixel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer animate-in fade-in slide-in-from-top-4 duration-700"
+          >
+            <span className="text-sm font-medium text-yellow-700 dark:text-yellow-400">⚠️ 部分服务出现故障</span>
+          </a>
         )}
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
