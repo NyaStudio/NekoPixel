@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Copy, Menu } from "lucide-react"
+import { Copy, Menu, Loader2, CheckCircle2, AlertTriangle } from "lucide-react"
 import { toast } from "sonner"
 import { useState, useEffect } from "react"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
@@ -208,10 +208,11 @@ export function Hero({
             href="https://status.nekopixel.cn/status/nekopixel"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700 hover:bg-accent/30 transition-colors"
+            className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700 hover:bg-accent/30 transition-colors"
           >
+            <Loader2 className="h-4 w-4 animate-spin" />
             <span className="text-sm font-medium text-muted-foreground">
-              🔄 加载状态...
+              加载状态...
             </span>
           </a>
         ) : systemStatus.allOperational ? (
@@ -219,10 +220,11 @@ export function Hero({
             href="https://status.nekopixel.cn/status/nekopixel"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700 hover:bg-accent/30 transition-colors"
+            className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full animate-in fade-in slide-in-from-top-4 duration-700 hover:bg-accent/30 transition-colors"
           >
+            <CheckCircle2 className="h-4 w-4 text-green-700 dark:text-green-400" />
             <span className="text-sm font-medium text-green-700 dark:text-green-400">
-              ✅ 所有服务运行正常
+              所有服务运行正常
             </span>
           </a>
         ) : (
@@ -230,9 +232,10 @@ export function Hero({
             href="https://status.nekopixel.cn/status/nekopixel"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer animate-in fade-in slide-in-from-top-4 duration-700"
+            className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full hover:bg-yellow-500/30 transition-colors cursor-pointer animate-in fade-in slide-in-from-top-4 duration-700"
           >
-            <span className="text-sm font-medium text-yellow-700 dark:text-yellow-400">⚠️ 部分服务出现故障</span>
+            <AlertTriangle className="h-4 w-4 text-yellow-700 dark:text-yellow-400" />
+            <span className="text-sm font-medium text-yellow-700 dark:text-yellow-400">部分服务出现故障</span>
           </a>
         )}
 
