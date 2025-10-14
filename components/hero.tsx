@@ -36,18 +36,16 @@ export function Hero({
   useEffect(() => {
     const fetchSystemStatus = async () => {
       try {
-        const res = await fetch("https://status.nekopixel.cn/api/status-page/heartbeat/nekopixel")
+        const res = await fetch("/api/status")
         const data = await res.json()
 
-        // Check if all heartbeats have status === 1
         let allOperational = true
         if (data?.heartbeatList) {
           for (const key in data.heartbeatList) {
             const heartbeats = data.heartbeatList[key]
-            if (Array.isArray(heartbeats)) {
-              // Check if any heartbeat has status !== 1
-              const hasFailure = heartbeats.some((beat: { status: number }) => beat.status !== 1)
-              if (hasFailure) {
+            if (Array.isArray(heartbeats) && heartbeats.length > 0) {
+              const latestBeat = heartbeats[heartbeats.length - 1]
+              if (latestBeat.status !== 1) {
                 allOperational = false
                 break
               }
